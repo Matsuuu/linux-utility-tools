@@ -1,0 +1,19 @@
+#!/bin/bash
+
+word="$1"
+newString=""
+
+for i in $(seq 0 $((${#word} - 1)))
+do
+    randInt=$((( RANDOM % 10 ) + 1))
+    #echo "$i"
+    char=${word:$i:1}
+    if [ $randInt -gt 4 ]
+    then
+        newString+="${char^}"
+    else
+        newString+="$char"
+    fi
+done
+
+echo "${newString}"
